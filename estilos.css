@@ -27,14 +27,39 @@ header {
 }
 
 /* Logo */
+.logo {
+  margin-right: 20px; /* ajusta el valor según sea necesario */
+}
 
 a .logo img {
   width: 100%;
   height: 100%;
   border-radius: 70%;
+  padding: 30px;
 }
 
+@media (min-width: 768px) {
+  .logo {
+    margin-right: 20px; /* ajusta el valor según sea necesario */
+  }
+}
 
+.logo-blanco {
+  transition: transform 0.5s ease-in-out;
+}
+
+.logo-blanco:hover {
+  animation: rotar 2s infinite;
+}
+
+@keyframes rotar {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* Navegación */
 nav {
   flex: 1;
@@ -74,19 +99,19 @@ nav a:hover {
 }
 
 .align-right {
-  margin-right: auto; /* Alinear elementos a la derecha */
+  margin-right: auto; 
 }
 
-.banner{
-  width: 100%;
-  height: 50vh;
+/* jumbotron */
+
+.banner {
+  height: 200px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Video con imgen sobrepuesta */
 .video-fondo {
   position: absolute;
   top: 0;
@@ -98,34 +123,37 @@ nav a:hover {
 }
 
 .call {
-  padding: 20px;
-  width: 50%;
-  border: 5px;
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  height: auto;
-  margin: 0;
+  height: 100%;
 }
 
 .call img {
-  max-width: 100%;
+  max-width: 100%; 
   height: auto;
   margin: 0 auto;
-  position: relative;
 }
 
 /* propiedades imagen responsive */
 @media (max-width: 768px) {
-  img {
-    width: 60%;
+  .banner {
+    height: 150px; 
+  }
+  .call img {
+    max-width: 70%; 
   }
 }
+
 @media (max-width: 480px) {
-  img {
-    width: 70%;
+  .banner {
+    height: 100px; 
+  }
+  .call img {
+    max-width: 50%;
   }
 }
+
 /* Estilo del título principal */
 h1 {
   text-align: center;
@@ -156,6 +184,31 @@ h1 {
     font-size: 1em; /* tamaño del texto para dispositivos móviles pequeños */
   }
 }
+
+/* jumbotron3 */
+
+.call3 img {
+  width: 200%;
+  margin: 0 auto; 
+  padding: 10px;
+  object-fit: cover;
+  transform: scale(1.6);
+}
+
+@media (max-width: 768px) {
+  .call3 img {
+    max-width: 200px; /* ancho máximo de la imagen para tablets */
+    transform: scale(1.1); /* escala la imagen un 10% más grande para tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .call3 img {
+    max-width: 150px; /* ancho máximo de la imagen para móviles */
+    transform: scale(1.0); /* no escala la imagen para móviles */
+  }
+}
+
 /* Galería #1*/
 .container {
   display: flex;
@@ -390,16 +443,27 @@ h1 {
 }
 
 .see-more {
-  position: absolute; /* Asegúrate de que el botón tenga una posición absoluta */
-  top: 50%; /* Centra el botón verticalmente */
-  left: 50%; /* Centra el botón horizontalmente */
-  transform: translate(-50%, -50%); /* Ajusta la posición del botón */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
   background-color: rgba(255, 255, 255, 0.5); /* Transparencia */
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+}
+
+.see-more:hover {
+  background-color: #ff7900;
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.see-more:active {
+  transform: translate(-50%, -50%) scale(0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 .content img {
@@ -486,11 +550,60 @@ h1 {
   font-family: "Open Sans";
 }
 
-.jumbotron2-wrapper {
-  min-height: 100vh;
-  margin-bottom: -200px; /* Agrega un margen inferior negativo */
+
+
+
+/* jumbotron2 */
+
+.banner2 {
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.video-fondo2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.call2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.call2 .img-responsive {
+  max-width: 100%; /* ajusta el tamaño de la imagen a tu gusto */
+  height: auto;
+  margin: 0 auto;
+}
+
+/* propiedades imagen responsive */
+@media (max-width: 768px) {
+  .banner {
+    height: 150px; /* ajusta la altura para tablets */
+  }
+  .call2 .img-responsive {
+    max-width: 70%; /* ajusta el tamaño de la imagen para tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner2 {
+    height: 100px; /* ajusta la altura para móviles */
+  }
+  .call2 .img-responsive {
+    max-width: 50%; /* ajusta el tamaño de la imagen para móviles */
+  }
+}
 
 /* Media queries para hacer la galería responsive */
 @media (max-width: 1024px) { /* Pantallas medianas (tablets) */
@@ -643,8 +756,8 @@ button[type="submit"]:hover {
 /* About */
 
 .container4 {
-  width: 80%;
-  max-width: 1000px;
+  width: 100%;
+width: auto;
   text-align: center;
   margin: 0 auto; /* Agrega un margen automático para centrar el contenedor */
 }
@@ -676,6 +789,24 @@ button[type="submit"]:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.container4 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .container4 {
+    background-size: 50% auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .container4 {
+    background-size: auto 100%;
+  }
 }
 
 h2 .txt3{
@@ -836,39 +967,35 @@ footer p {
 /* videos con texto store */
 .video-containerv {
   position: relative;
-  height: 100%;
-  overflow: hidden;
-  padding-bottom: 10px;
+  width: 100%;
+  padding-top: 56.25%;
+  margin-bottom: 15px;
 }
 
-.video-containerv iframe,
 .video-containerv video {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-.video-containerv a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-
-.video-containerv a:hover {
-  cursor: pointer;
+  object-fit: cover;
 }
 
 .overlay1 {
   position: absolute;
-  top: 1px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Opacidad 50% */
   display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.overlay1 {
+  top: 1px;
   justify-content: center;
   align-items: center;
   color: #fff;
@@ -899,7 +1026,7 @@ footer p {
     width: 100%;
   }
   .textv {
-    font-size: 50px;
+    font-size: 90px;
   }
 }
 @media (max-width: 480px) {
